@@ -8,9 +8,18 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      backgroundImage: {
+        stars: "url('/images/stars.png')",
+        twinkle: "url('/images/twinkling.png')",
+      },
+      animation: {
+        twinkle: "move-twinkle 200s linear infinite",
+      },
+      keyframes: {
+        "move-twinkle": {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "-10000px 5000px" },
+        },
       },
     },
   },
