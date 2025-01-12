@@ -19,3 +19,16 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+.masonry img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+

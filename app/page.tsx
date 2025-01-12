@@ -129,69 +129,131 @@ function HeroSection() {
   </section>
   );
 }
-
-function AboutMe(){
+function AboutMe() {
   return (
     <section id="about" className="py-20 flex flex-col items-center gap-8">
-      <h2 className="text-3xl font-bold text-white-800">About Me</h2>
+      <h2 className="text-4xl font-extrabold text-white tracking-wide">
+        About Me
+      </h2>
 
-      <div className="border border-white/70 p-8 shadow-md grid grid-cols-1 sm:grid-cols-2 items-center gap-8 transition-transform duration-300 hover:shadow-lg hover:scale-105 mx-auto max-w-[1100px] animate-glow">
-        {/*left pannel text*/}
-        <div className="space-y-8">
-          <p className="text-2xl text-gray-100 text-left font-bold">
+      <div className="border border-white/70 p-8 shadow-md grid grid-cols-1 sm:grid-cols-2 items-center gap-8 transition-transform duration-300 hover:shadow-lg hover:scale-105 mx-auto max-w-[1100px] animate-glow bg-gradient-to-r from-gray-800 via-black to-gray-900 rounded-lg">
+        {/* Left Panel: Text Content */}
+        <div className="space-y-8 text-left">
+          <h3 className="text-3xl text-gray-100 font-bold">
             Who I Am
-          </p>
-          <p className="text-md text-gray-300 text-left">
-            Hi, I&apos;m Raegan Van Raamsdonk, a student with a love
-            for math, computer science, and problem-solving. 
-            I enjoy exploring the logic and creativity behind 
-            coding, whether it&apos;s building web applications, 
-            creating games, or tackling algorithm challenges. 
-            Outside of academics, I love weight training, ultimate 
-            frisbe, soccer, and chess. My goal is to combine my 
-            passions and skills to create solutions and 
-            continue learning every step of the way.
+          </h3>
+          <p className="text-md text-gray-300 leading-relaxed">
+            Hi, I&apos;m Raegan Van Raamsdonk, a student with a love for math, computer science, and problem-solving. I enjoy exploring the logic and creativity behind coding, whether it&apos;s building web applications, creating games, or tackling algorithm challenges. Outside of academics, I love weight training, ultimate frisbee, soccer, and chess. My goal is to combine my passions and skills to create solutions and continue learning every step of the way.
           </p>
         </div>
-        
-        {/* Right: Overlapping Photos */}
-        <div className="relative w-[400px] h-[400px]">
-          {/* First Photo */}
-          <div
-            className="absolute top-0 left-0 z-0"
-            style={{ width: '300px', height: '300px' }}
-          >
+
+        {/* Right Panel: Masonry Grid Photos */}
+        <div className="grid grid-cols-4 gap-4">
+          {/* Column 1 */}
+          <div className="flex flex-col gap-4">
             <Image
-              src="/images/dominican.jpeg"
-              alt="Backflip in Dominican Republic"
-              width={150}
-              height={150}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg object-cover"
+              src="/images/set1/a-m-tongue.jpg"
+              alt="Photo 1"
+              width={300}
+              height={400}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/a-r-atv.jpg"
+              alt="Photo 2"
+              width={300}
+              height={300}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/r-sooke.jpeg"
+              alt="Photo 3"
+              width={300}
+              height={300}
             />
           </div>
 
-          {/* Second Photo */}
-          <div
-            className="absolute top-40 left-32 z-10"
-            style={{ width: '300px', height: '300px' }}
-          >
+          {/* Column 2 */}
+          <div className="flex flex-col gap-4">
             <Image
-              src="/images/sooke.jpeg"
-              alt="French Beach in Sooke, BC"
-              width={150}
-              height={150}
-              className="rounded-lg shadow-md"
+              className="rounded-lg object-cover"
+              src="/images/set1/dominican.JPG"
+              alt="Photo 4"
+              width={300}
+              height={500}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/dumplings.jpg"
+              alt="Photo 5"
+              width={300}
+              height={300}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/a-r-sparkle.JPG"
+              alt="Photo 6"
+              width={300}
+              height={300}
+            />
+          </div>
+
+          {/* Column 3 */}
+          <div className="flex flex-col gap-4">
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/m-snow.jpg"
+              alt="Photo 7"
+              width={300}
+              height={400}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/r-sideroom.jpg"
+              alt="Photo 8"
+              width={300}
+              height={300}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/r-dom-ocean.jpg"
+              alt="Photo 9"
+              width={300}
+              height={300}
+            />
+          </div>
+
+          {/* Column 4 */}
+          <div className="flex flex-col gap-4">
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/r-a-grad.jpg"
+              alt="Photo 10"
+              width={300}
+              height={500}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/r-hornby.jpg"
+              alt="Photo 11"
+              width={300}
+              height={500}
+            />
+            <Image
+              className="rounded-lg object-cover"
+              src="/images/set1/r-math.jpg"
+              alt="Photo 12"
+              width={300}
+              height={400}
             />
           </div>
         </div>
-
-
-        
       </div>
-      
     </section>
-  )
+  );
 }
+
 
 // Projects Section Component
 function ProjectsSection() {
