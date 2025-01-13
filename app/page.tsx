@@ -146,7 +146,11 @@ function AboutMe() {
             Who I Am
           </h3>
           <p className="text-md text-gray-300 leading-relaxed">
-            Hi, I&apos;m Raegan Van Raamsdonk, a student with a love for math, computer science, and problem-solving. I enjoy exploring the logic and creativity behind coding, whether it&apos;s building web applications, creating games, or tackling algorithm challenges. Outside of academics, I love weight training, ultimate frisbee, soccer, and chess. My goal is to combine my passions and skills to create solutions and continue learning every step of the way.
+            Hi, I&apos;m Raegan Van Raamsdonk, a student with a love for math, computer science, 
+            and problem-solving. I enjoy exploring the logic and creativity behind coding, whether 
+            it&apos;s building web applications, creating games, or tackling algorithm challenges. 
+            Outside of academics, I love weight training, ultimate frisbee, soccer, and chess. My 
+            goal is to combine my passions and skills to create solutions and continue learning every step of the way.
           </p>
         </div>
 
@@ -271,32 +275,32 @@ function EducationSection() {
       title: "Elementary School",
       time: "2010",
       description:
-        'My passion for computers and mathematics was sparked through projects like "Binary," where I explored Boolean algebra and logic gates, and "The Fastest Path," where I studied the brachistochrone curve. These early experiences laid the foundation for my love of problem-solving and technology.',
-      popupDescription: 'this is the popupDescription for 1',
+        "My passion for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates, and \"The Fastest Path,\" where I studied the brachistochrone curve. These early experiences laid the foundation for my love of problem-solving and technology.",
+      popupDescription: "My passion for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates, and \"The Fastest Path,\" where I studied the brachistochrone curve. These early experiences laid the foundation for my love of problem-solving and technology.",
       images: ["/images/r-p-boolean.JPG"],
     },
     {
       title: "Middle School",
       time: "2016",
       description:
-        'I combined my love for math and computers to create "Neural Networks for Cancer Diagnosis," a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.',
-      popupDescription: 'this is the popupDescription for 2',
+        "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.",
+      popupDescription: "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.",
       images: ["/images/r-middle.jpg"],
     },
     {
       title: "High School",
       time: "2019",
       description:
-        'I developed projects like "Floppy Fish," an underwater-themed game, and "Ninja Adventures," a multi-level adventure game. These experiences allowed me to explore creativity while deepening my interest in programming.',
-      popupDescription: 'this is the popupDescription for 3',
+        "I developed projects like \"Floppy Fish,\" an underwater-themed game, and \"Ninja Adventures,\" a multi-level adventure game. These experiences allowed me to explore creativity while deepening my interest in programming.",
+      popupDescription: "I developed projects like \"Floppy Fish,\" an underwater-themed game, and \"Ninja Adventures,\" a multi-level adventure game. These experiences allowed me to explore creativity while deepening my interest in programming.",
       images: ["/images/floppyFish.png", "/images/ninja2.png"],
     },
     {
       title: "University",
       time: "Present",
       description:
-        'I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. I continue to combine creativity and problem-solving to develop meaningful projects.',
-      popupDescription: 'this is the popupDescription for 4',
+        "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. I continue to combine creativity and problem-solving to develop meaningful projects.",
+      popupDescription: "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. I continue to combine creativity and problem-solving to develop meaningful projects.",
       images: ["/images/r-skate.jpg"],
     },
   ];
@@ -375,7 +379,7 @@ function EducationSection() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              className="rounded-lg mb-4"
+              className="rounded-lg mb-4 max-w-full max-h-[70vh] object-contain"
               src={popupImage}
               alt="Expanded"
               width={800}
@@ -391,6 +395,7 @@ function EducationSection() {
           </div>
         </div>
       )}
+
     </section>
   );
 }
