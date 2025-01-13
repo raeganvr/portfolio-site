@@ -347,7 +347,7 @@ function EducationSection() {
                       key={imgIndex} 
                       onClick={() => {
                         setPopupImage(image);
-                        setPopupDescription(item.popupDescription);
+                        setPopupDescription(item.popupDescription); // could add a variable for 1 and 2 so multi images can have different descriptions
                       }}
                     >
                       <Image
@@ -428,9 +428,7 @@ function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-black-100 flex flex-col items-center gap-8">
       <h2 className="text-3xl font-bold text-white">Contact Me</h2>
-      <p className="text-lg text-gray-700 text-center max-w-2xl">
-        Interested in working together? Reach out to me through LinkedIn or check out my GitHub for more projects.
-      </p>
+      
     </section>
   );
 }
@@ -438,14 +436,19 @@ function ContactSection() {
 // Footer Component
 function Footer() {
   return (
-    <footer className="w-full bg-blue-600 text-white py-4 px-8 flex flex-col sm:flex-row gap-4 items-center justify-between">
-      <div>
-        <p>&copy; 2025 Raegan Van Raamsdonk. All rights reserved.</p>
+    <footer className="w-full bg-black text-white py-4 px-8 flex flex-col gap-2">
+
+      <div className="relative h-1 w-full mb-2">
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-white to-black h-full"></div>
       </div>
-      
+
+      <div className="flex flex-col sm:flex-row items-center justify-between mb-2">
+        <p>&copy; Raegan Van Raamsdonk</p>
+      </div>
     </footer>
   );
 }
+
 
 // Main Home Component
 export default function Home() {
