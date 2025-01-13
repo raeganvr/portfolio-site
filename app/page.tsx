@@ -4,6 +4,9 @@ import Image from "next/image";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoPin } from 'react-icons/io5';
 import { MdEmail } from "react-icons/md";
+import { useState } from "react";
+
+import { motion } from "framer-motion"
 
 function NavigationBar() {
   return (
@@ -122,7 +125,7 @@ function HeroSection() {
           width={324}
           height={246}
           className="rounded-full object-cover"
-          priority // Optimized image loading
+          priority
         />
       </div>
     </div>
@@ -254,12 +257,155 @@ function AboutMe() {
   );
 }
 
+function EducationSection() {
+  const [popupImage, setPopupImage] = useState<string | null>(null); 
+  const [popupDescription, setPopupDescription] = useState<string>("");
+
+  const closePopup = () => {
+    setPopupImage(null);
+    setPopupDescription("");
+  };
+
+  const timelineItems = [
+    {
+      title: "Elementary School",
+      time: "2010",
+      description:
+        'My passion for computers and mathematics was sparked through projects like "Binary," where I explored Boolean algebra and logic gates, and "The Fastest Path," where I studied the brachistochrone curve. These early experiences laid the foundation for my love of problem-solving and technology.',
+      popupDescription: 'this is the popupDescription for 1',
+      images: ["/images/r-p-boolean.JPG"],
+    },
+    {
+      title: "Middle School",
+      time: "2016",
+      description:
+        'I combined my love for math and computers to create "Neural Networks for Cancer Diagnosis," a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.',
+      popupDescription: 'this is the popupDescription for 2',
+      images: ["/images/r-middle.jpg"],
+    },
+    {
+      title: "High School",
+      time: "2019",
+      description:
+        'I developed projects like "Floppy Fish," an underwater-themed game, and "Ninja Adventures," a multi-level adventure game. These experiences allowed me to explore creativity while deepening my interest in programming.',
+      popupDescription: 'this is the popupDescription for 3',
+      images: ["/images/floppyFish.png", "/images/ninja2.png"],
+    },
+    {
+      title: "University",
+      time: "Present",
+      description:
+        'I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. I continue to combine creativity and problem-solving to develop meaningful projects.',
+      popupDescription: 'this is the popupDescription for 4',
+      images: ["/images/r-skate.jpg"],
+    },
+  ];
+
+  return (
+    <section id="education" className="py-20 flex flex-col items-center gap-12">
+      <h2 className="text-4xl font-extrabold text-white tracking-wide mb-8">
+        Education
+      </h2>
+
+      <div className="relative space-y-12 before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-gray-600 before:to-gray-800">
+        {timelineItems.map((item, index) => (
+          <div
+            key={index}
+            className={`relative flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto ${
+              index % 2 === 0 ? "md:flex-row-reverse" : ""
+            }`}
+          >
+            {/* Icon */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-700 text-gray-300 shadow">
+              <svg
+                className="fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="10"
+              >
+                <path
+                  fillRule="nonzero"
+                  d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
+                />
+              </svg>
+            </div>
+
+            {/* Content Box */}
+            <div className="w-full md:w-1/2 bg-gray-800 text-white p-6 rounded border border-gray-600 shadow-lg max-w-6xl">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-bold text-xl">{item.title}</h3>
+                <time className="font-medium text-indigo-400">{item.time}</time>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <p className="text-gray-300">{item.description}</p>
+
+                <div className="flex flex-wrap gap-4 justify-end">
+                  {item.images.map((image, imgIndex) => (
+                    <button
+                      key={imgIndex} 
+                      onClick={() => {
+                        setPopupImage(image);
+                        setPopupDescription(item.popupDescription);
+                      }}
+                    >
+                      <Image
+                        className="rounded-lg object-cover cursor-pointer hover:opacity-80"
+                        src={image}
+                        alt={`${item.title} Image ${imgIndex + 1}`}
+                        width={300}
+                        height={200}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Pop-Up for Expanded Image */}
+      {popupImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={closePopup}
+        >
+          <div
+            className="bg-gray-900 rounded-lg p-6 relative max-w-4xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              className="rounded-lg mb-4"
+              src={popupImage}
+              alt="Expanded"
+              width={800}
+              height={600}
+            />
+            <p className="text-white text-center">{popupDescription}</p>
+            <button
+              className="absolute top-4 right-4 text-white text-lg"
+              onClick={closePopup}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+
+
+
+
+
 
 // Projects Section Component
 function ProjectsSection() {
   return (
-    <section id="projects" className="py-20 bg-black-100 flex flex-col items-center gap-8">
-      <h2 className="text-3xl font-bold text-white-800">My Projects</h2>
+    <section id="projects" className="py-20 flex flex-col items-center gap-8">
+      <h2 className="text-4xl font-extrabold text-white-800 tracking-wide">My Projects</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-4xl">
         <div className="p-6 border rounded-lg shadow-md">
           <h3 className="text-xl font-semibold">Project 1</h3>
@@ -312,6 +458,7 @@ export default function Home() {
         <main className="flex-grow">
           <HeroSection />
           <AboutMe />
+          <EducationSection />
           <ProjectsSection />
           <ContactSection />
         </main>
