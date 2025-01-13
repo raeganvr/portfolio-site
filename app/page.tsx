@@ -6,8 +6,6 @@ import { IoPin } from 'react-icons/io5';
 import { MdEmail } from "react-icons/md";
 import { useState } from "react";
 
-import { motion } from "framer-motion"
-
 function NavigationBar() {
   return (
     <header className="w-full bg-black text-white py-4 px-8">
