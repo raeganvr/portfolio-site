@@ -4,7 +4,12 @@ import Image from "next/image";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoPin } from 'react-icons/io5';
 import { MdEmail } from "react-icons/md";
+import { FiChevronDown } from "react-icons/fi";
+
 import { useState } from "react";
+
+import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaGitAlt, FaJava, FaPython } from "react-icons/fa";
+import { SiTailwindcss, SiTensorflow, SiKeras, SiJunit5, SiTypescript } from "react-icons/si";
 
 function NavigationBar() {
   return (
@@ -30,10 +35,17 @@ function NavigationBar() {
             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
           </a>
           <a
-            href="#portfolio"
+            href="#technology"
             className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
           >
-            Portfolio
+            Technology
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
+          </a>
+          <a
+            href="#education"
+            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
+          >
+            Education
             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
           </a>
           <a
@@ -71,7 +83,7 @@ function NavigationBar() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="py-20 px-16 bg-black-100">
+    <section id="hero" className="py-20 px-16 bg-black-100 h-[75vh]">
     <div className="border border-white/70 p-8 rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-2 items-center gap-16 transition-transform duration-300 hover:shadow-lg hover:scale-105 mx-auto max-w-[800px] animate-glow">
       {/* Left Content: Name and Description */}
       <div className="flex flex-col">
@@ -259,6 +271,115 @@ function AboutMe() {
   );
 }
 
+
+function Technology() {
+  const techItems = [
+    {
+      icon: <FaReact size={32} className="text-blue-500" />,
+      name: "React",
+      description: "JavaScript library",
+    },
+    {
+      icon: <FaHtml5 size={32} className="text-orange-500" />,
+      name: "HTML5",
+      description: "Webpage structure",
+    },
+    {
+      icon: <FaCss3Alt size={32} className="text-blue-400" />,
+      name: "CSS3",
+      description: "Webpage styling",
+    },
+    {
+      icon: <SiTailwindcss size={32} className="text-teal-500" />,
+      name: "Tailwind CSS",
+      description: "CSS framework",
+    },
+    {
+      icon: <FaJsSquare size={32} className="text-yellow-500" />,
+      name: "JavaScript",
+      description: "Scripting language",
+    },
+    {
+      icon: <FaJava size={32} className="text-red-500" />,
+      name: "Java",
+      description: "High-level language",
+    },
+    {
+      icon: <SiTypescript size={32} className="text-blue-500" />,
+      name: "TypeScript",
+      description: "JavaScript Extension",
+    },
+    {
+      icon: <FaPython size={32} className="text-blue-300" />,
+      name: "Python",
+      description: "High-level language",
+    },
+    {
+      icon: <SiTensorflow size={32} className="text-orange-400" />,
+      name: "TensorFlow",
+      description: "ML library",
+    },
+    {
+      icon: <SiKeras size={32} className="text-red-400" />,
+      name: "Keras",
+      description: "Neural networks API",
+    },
+    {
+      icon: <FaGitAlt size={32} className="text-orange-600" />,
+      name: "Git",
+      description: "Version control",
+    },
+    {
+      icon: <SiJunit5 size={32} className="text-green-300" />,
+      name: "Junit5",
+      description: "Unit testing",
+    },
+  ];
+
+  return (
+    <section id="technology" className="py-20 flex flex-col items-center gap-12 relative">
+      <div className="bg-black relative p-8 shadow-md mx-auto w-screen h-screen rounded-lg overflow-hidden">
+        {/* Radial Gradient */}
+        <div
+          className="absolute inset-0 opacity-30 z-0"
+          style={{
+            background: "radial-gradient(circle at top, rgba(55,50,230,0.7) 10%, transparent 70%)",
+          }}
+        ></div>
+  
+        {/* Section Title */}
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-6xl font-bold text-white tracking-wide text-left z-10 relative mb-8 py-8">
+            Technology
+          </h2>
+  
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {techItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-4 bg-slate-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-transform transform group"
+              >
+                <div className="p-2 bg-slate-950 rounded-lg relative group-hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)] transition-shadow">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg text-gray-300">{item.name}</h3>
+                  <p className="text-sm text-gray-500">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+  
+  
+  
+}
+
+
 function EducationSection() {
   const [popupImage, setPopupImage] = useState<string | null>(null); 
   const [popupDescription, setPopupDescription] = useState<string>("");
@@ -308,46 +429,50 @@ function EducationSection() {
       <h2 className="text-4xl font-extrabold text-white tracking-wide mb-8">
         Education
       </h2>
-
-      <div className="relative space-y-12 before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-gray-600 before:to-gray-800">
+      
+      
+      <div className="relative space-y-12 before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:h-full before:w-1 before:bg-gray-600">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-700 text-gray-300 shadow">
+          <FiChevronDown size={16} />
+        </div>
         {timelineItems.map((item, index) => (
           <div
             key={index}
-            className={`relative flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto ${
-              index % 2 === 0 ? "md:flex-row-reverse" : ""
-            }`}
+            className={`relative flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto`}
           >
+            {/* Horizontal Line */}
+            <div
+              className={`absolute top-1/2 w-1/2 h-1 bg-gray-600 ${
+                index % 2 === 0 ? "left-1/2 -translate-x-0" : "right-1/2 translate-x-0"
+              }`}
+            ></div>
+
             {/* Icon */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-700 text-gray-300 shadow">
-              <svg
-                className="fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="10"
-              >
-                <path
-                  fillRule="nonzero"
-                  d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
-                />
-              </svg>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-700 text-gray-300 shadow">
+              <FiChevronDown size={16} />
             </div>
 
             {/* Content Box */}
-            <div className="w-full md:w-1/2 bg-gray-800 text-white p-6 rounded border border-gray-600 shadow-lg max-w-6xl">
+            <div
+              className={`relative bg-gray-800 text-white p-6 rounded border border-gray-600 shadow-lg ${
+                index % 2 === 0 ? "ml-auto" : "mr-auto"
+              }`}
+              style={{ width: "45%" }}
+            >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="font-bold text-xl">{item.title}</h3>
-                <time className="font-medium text-indigo-400">{item.time}</time>
+                <time className="font-bold text-lg tracking-wider text-indigo-300">{item.time}</time>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <p className="text-gray-300">{item.description}</p>
-
-                <div className="flex flex-wrap gap-4 justify-end">
+              
+                <div className="flex flex-wrap gap-4 justify-end mt-4">
                   {item.images.map((image, imgIndex) => (
                     <button
-                      key={imgIndex} 
+                      key={imgIndex}
                       onClick={() => {
                         setPopupImage(image);
-                        setPopupDescription(item.popupDescription); // could add a variable for 1 and 2 so multi images can have different descriptions
+                        setPopupDescription(item.popupDescription);
                       }}
                     >
                       <Image
@@ -453,7 +578,7 @@ function Footer() {
 // Main Home Component
 export default function Home() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden">
       <div className="absolute inset-0 bg-black z-0"></div>
       <div className="absolute inset-0 bg-stars bg-fixed z-10"></div>
       <div className="absolute inset-0 bg-twinkle bg-fixed z-20 animate-twinkle"></div>
@@ -463,6 +588,7 @@ export default function Home() {
         <NavigationBar />
         <main className="flex-grow">
           <HeroSection />
+          <Technology />
           <AboutMe />
           <EducationSection />
           <ProjectsSection />
