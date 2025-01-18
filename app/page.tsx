@@ -28,13 +28,6 @@ function NavigationBar() {
         {/* Center Section: Navigation Links */}
         <nav className="hidden sm:flex justify-center gap-8">
           <a
-            href="#about"
-            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
-          >
-            About
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
-          </a>
-          <a
             href="#technology"
             className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
           >
@@ -42,17 +35,24 @@ function NavigationBar() {
             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
           </a>
           <a
-            href="#education"
-            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
-          >
-            Education
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
-          </a>
-          <a
             href="#projects"
             className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
           >
             Projects
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
+          </a>
+          <a
+            href="#about"
+            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
+          >
+            About Me
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
+          </a>
+          <a
+            href="#education"
+            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
+          >
+            Education
             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
           </a>
           <a
@@ -83,7 +83,7 @@ function NavigationBar() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="py-20 px-16 bg-black-100 h-[75vh]">
+    <section id="hero" className="py-20 px-16 bg-black-100 h-[70vh]">
     <div className="border border-white/70 p-8 rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-2 items-center gap-16 transition-transform duration-300 hover:shadow-lg hover:scale-105 mx-auto max-w-[800px] animate-glow">
       {/* Left Content: Name and Description */}
       <div className="flex flex-col">
@@ -117,7 +117,7 @@ function HeroSection() {
             <FaLinkedin size={20} /> LinkedIn
           </a>
           <a
-            href="mailto:john@example.com"
+            href="mailto:raeganvr7@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
@@ -144,132 +144,190 @@ function HeroSection() {
 }
 function AboutMe() {
   return (
-    <section id="about" className="py-20 flex flex-col items-center gap-8">
-      <h2 className="text-4xl font-extrabold text-white tracking-wide">
-        About Me
-      </h2>
+    <section id="about" className="py-20 flex flex-col items-center gap-12 relative">
+      <div className="bg-black bg-opacity-90 relative p-8 shadow-md mx-auto w-screen h-auto rounded-lg overflow-hidden">
+        {/* Radial Gradient */}
+        <div
+          className="absolute inset-0 opacity-30 z-0"
+          style={{
+            background: "radial-gradient(circle at center, rgba(55,50,230,0.7) 10%, transparent 60%)",
+          }}
+        ></div>
 
-      <div className="border border-white/70 p-8 shadow-md grid grid-cols-1 sm:grid-cols-2 items-center gap-8 transition-transform duration-300 hover:shadow-lg hover:scale-105 mx-auto max-w-[1100px] animate-glow bg-gradient-to-r from-gray-800 via-black to-gray-900 rounded-lg">
-        {/* Left Panel: Text Content */}
-        <div className="space-y-8 text-left">
-          <h3 className="text-3xl text-gray-100 font-bold">
-            Who I Am
-          </h3>
-          <p className="text-md text-gray-300 leading-relaxed">
-            Hi, I&apos;m Raegan Van Raamsdonk, a student with a love for math, computer science, 
-            and problem-solving. I enjoy exploring the logic and creativity behind coding, whether 
-            it&apos;s building web applications, creating games, or tackling algorithm challenges. 
-            Outside of academics, I love weight training, ultimate frisbee, soccer, and chess. My 
-            goal is to combine my passions and skills to create solutions and continue learning every step of the way.
-          </p>
-        </div>
+        {/* Section Content */}
+        <div className="max-w-6xl mx-auto z-10 relative">
+          <h2 className="text-6xl ml-2 font-bold text-white tracking-wide text-left mb-8">
+            About Me
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 items-start gap-12">
+            {/* Left Panel: Text Content */}
+            <div className="space-y-8 text-left">
+              <div className="space-y-2">
+                <h4 className="text-2xl ml-2 text-gray-100 font-semibold">Who I Am</h4>
+                <p className="text-md ml-2 text-gray-400 leading-relaxed mt-1">
+                  Hi, I&apos;m Raegan Van Raamsdonk, a student with a love for math, computer science, 
+                  and problem-solving. I thrive on exploring the balance between logic and creativity.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-2xl ml-2 text-gray-200 font-semibold">What I Do</h4>
+                <p className="text-md ml-2 text-gray-400 leading-relaxed">
+                  Whether it&apos;s building web applications, creating immersive games, or tackling complex algorithm challenges, I enjoy pushing the boundaries of my skills. 
+                  I&apos;m always curious to learn more and embrace every opportunity for growth.
+                </p>
+              </div>
 
-        {/* Right Panel: Masonry Grid Photos */}
-        <div className="grid grid-cols-4 gap-4">
-          {/* Column 1 */}
-          <div className="flex flex-col gap-4">
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/a-m-tongue.jpg"
-              alt="Photo 1"
-              width={300}
-              height={400}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/a-r-atv.jpg"
-              alt="Photo 2"
-              width={300}
-              height={300}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/r-sooke.jpeg"
-              alt="Photo 3"
-              width={300}
-              height={300}
-            />
-          </div>
+              <div className="space-y-2">
+                <h4 className="text-2xl ml-2 text-gray-200 font-semibold">Beyond Coding</h4>
+                <p className="text-md ml-2 text-gray-400 leading-relaxed">
+                  Outside of academics, I love staying active through weight training, ultimate frisbee, and soccer. 
+                  When I&apos;m not on the field or in the gym, you can find me playing chess or enjoying quiet moments with friends and family.
+                </p>
+              </div>
 
-          {/* Column 2 */}
-          <div className="flex flex-col gap-4">
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/dominican.JPG"
-              alt="Photo 4"
-              width={300}
-              height={500}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/dumplings.jpg"
-              alt="Photo 5"
-              width={300}
-              height={300}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/a-r-sparkle.JPG"
-              alt="Photo 6"
-              width={300}
-              height={300}
-            />
-          </div>
+              <div className="space-y-2">
+                <h4 className="text-2xl ml-2 text-gray-200 font-semibold">My Vision</h4>
+                <p className="text-md ml-2 text-gray-400 leading-relaxed">
+                  My goal is to combine my passions and skills to develop meaningful solutions, contribute to impactful projects, 
+                  and continuously learn along the way.
+                </p>
+              </div>
+            </div>
 
-          {/* Column 3 */}
-          <div className="flex flex-col gap-4">
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/m-snow.jpg"
-              alt="Photo 7"
-              width={300}
-              height={400}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/r-sideroom.jpg"
-              alt="Photo 8"
-              width={300}
-              height={300}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/r-dom-ocean.jpg"
-              alt="Photo 9"
-              width={300}
-              height={300}
-            />
-          </div>
 
-          {/* Column 4 */}
-          <div className="flex flex-col gap-4">
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/r-a-grad.jpg"
-              alt="Photo 10"
-              width={300}
-              height={500}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/r-hornby.jpg"
-              alt="Photo 11"
-              width={300}
-              height={500}
-            />
-            <Image
-              className="rounded-lg object-cover"
-              src="/images/set1/r-math.jpg"
-              alt="Photo 12"
-              width={300}
-              height={400}
-            />
+            {/* Right Panel: Masonry Grid Photos */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {/* Column 1 */}
+              <div className="flex flex-col gap-4">
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/a-m-tongue.jpg"
+                    alt="Photo 1"
+                    width={300}
+                    height={400}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/a-r-atv.jpg"
+                    alt="Photo 2"
+                    width={300}
+                    height={300}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/r-sooke.jpeg"
+                    alt="Photo 3"
+                    width={300}
+                    height={300}
+                  />
+                </div>
+              </div>
+
+              {/* Column 2 */}
+              <div className="flex flex-col gap-4">
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/dominican.JPG"
+                    alt="Photo 4"
+                    width={300}
+                    height={500}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/dumplings.jpg"
+                    alt="Photo 5"
+                    width={300}
+                    height={300}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/a-r-sparkle.JPG"
+                    alt="Photo 6"
+                    width={300}
+                    height={300}
+                  />
+                </div>
+              </div>
+
+              {/* Column 3 */}
+              <div className="flex flex-col gap-4">
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/m-snow.jpg"
+                    alt="Photo 7"
+                    width={300}
+                    height={400}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/r-sideroom.jpg"
+                    alt="Photo 8"
+                    width={300}
+                    height={300}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/r-dom-ocean.jpg"
+                    alt="Photo 9"
+                    width={300}
+                    height={300}
+                  />
+                </div>
+              </div>
+
+              {/* Column 4 */}
+              <div className="flex flex-col gap-4">
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/r-a-grad.jpg"
+                    alt="Photo 10"
+                    width={300}
+                    height={500}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/r-hornby.jpg"
+                    alt="Photo 11"
+                    width={300}
+                    height={500}
+                  />
+                </div>
+                <div className="border border-gray-500 rounded-lg overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src="/images/set1/r-math.jpg"
+                    alt="Photo 12"
+                    width={300}
+                    height={400}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 function Technology() {
@@ -338,7 +396,7 @@ function Technology() {
 
   return (
     <section id="technology" className="py-20 flex flex-col items-center gap-12 relative">
-      <div className="bg-black relative p-8 shadow-md mx-auto w-screen h-screen rounded-lg overflow-hidden">
+      <div className="bg-black bg-opacity-90 relative p-8 shadow-md mx-auto w-screen h-[80vh] rounded-lg overflow-hidden">
         {/* Radial Gradient */}
         <div
           className="absolute inset-0 opacity-30 z-0"
@@ -348,7 +406,7 @@ function Technology() {
         ></div>
   
         {/* Section Title */}
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-6xl font-bold text-white tracking-wide text-left z-10 relative mb-8 py-8">
             Technology
           </h2>
@@ -426,9 +484,9 @@ function EducationSection() {
 
   return (
     <section id="education" className="py-20 flex flex-col items-center gap-12">
-      <h2 className="text-4xl font-extrabold text-white tracking-wide mb-8">
-        Education
-      </h2>
+      <div className="w-full max-w-6xl px-4">
+        <h2 className="text-6xl font-bold text-white tracking-wide ml-2">Education</h2>
+      </div>
       
       
       <div className="relative space-y-12 before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:h-full before:w-1 before:bg-gray-600">
@@ -529,35 +587,233 @@ function EducationSection() {
 
 
 
-// Projects Section Component
 function ProjectsSection() {
+  const projects = [
+    {
+      title: "Floppy Fish",
+      date: "2022",
+      description: "Inspired by the classic Flappy Bird game, Floppy...",
+      image: "/images/floppyFish.png",
+      github: "https://github.com/raeganvr/floppy-fish",
+      techIcons: [<FaJava size={20} className="text-yellow-500" />],
+    },
+    {
+      title: "Ninja Adventure",
+      date: "2021",
+      description: "This JavaScript path adventure game challenges...",
+      image: "/images/ninja1.png",
+      github: "https://github.com/raeganvr/ninja-adventure",
+      techIcons: [<FaHtml5 size={20} className="text-orange-500" />, <FaCss3Alt size={20} className="text-blue-400" />, <FaJsSquare size={20} className="text-yellow-400" />],
+    },
+    {
+      title: "Portfolio Website",
+      date: "2025",
+      description: "My personal portfolio website made using Next.js...",
+      image: "/images/website.png",
+      github: "https://github.com/raeganvr/portfolio-website",
+      techIcons: [<FaReact size={20} className="text-blue-500" />, <SiTailwindcss size={20} className="text-teal-500" />, <SiTypescript size={20} className="text-blue-400"/>, <FaGitAlt size={20} className="text-orange-600" />],
+    },
+  ];
+
   return (
-    <section id="projects" className="py-20 flex flex-col items-center gap-8">
-      <h2 className="text-4xl font-extrabold text-white-800 tracking-wide">My Projects</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-4xl">
-        <div className="p-6 border rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold">Project 1</h3>
-          <p className="text-gray-600">Description of my project. Technologies used and key features.</p>
-        </div>
-        <div className="p-6 border rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold">Project 2</h3>
-          <p className="text-gray-600">Another project description. Showcase what you&apos;ve built!</p>
-        </div>
+    <section id="projects" className="relative py-20 bg-black flex flex-col items-center gap-12 -z-10">
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          background: "radial-gradient(circle at bottom, rgba(55,50,230,0.7) 10%, transparent 70%)",
+          top: "0", 
+          bottom: "0", 
+          left: "0", 
+          right: "0", 
+          zIndex: "-1", 
+        }}
+      ></div>
+  
+      {/* Projects Section */}
+      <div className="w-full max-w-6xl px-4">
+        <h2 className="text-6xl font-bold text-white tracking-wide ml-2">Projects</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl px-4">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="border border-gray-700 bg-gray-900 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105"
+          >
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="block">
+              {/* Image Section */}
+              <div className="relative h-48">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </a>
+            {/* Content Section */}
+            <div className="p-4 flex flex-col gap-4">
+              <div>
+                <p className="text-sm text-gray-400">{project.date}</p>
+                <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                <p className="text-sm text-gray-400">{project.description}</p>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex gap-2">
+                  {project.techIcons.map((icon, idx) => (
+                    <span key={idx}>{icon}</span>
+                  ))}
+                </div>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 font-bold hover:underline"
+                >
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="w-full max-w-6xl px-4 ml-4 flex">
+        <a
+          href="https://github.com/raeganvr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-white bg-black text-white py-2 px-4 rounded-2xl hover:bg-gray-800 transition-colors flex items-center gap-2"
+        >
+          <FaGithub size={20} /> View GitHub
+        </a>
       </div>
     </section>
   );
 }
 
-// Contact Section Component
+
+import React from "react";
+
 function ContactSection() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState({ name: "", email: "", message: "" });
+  const [successMessage, setSuccessMessage] = useState("");
+
+  // Explicitly type 'e' as React.ChangeEvent for inputs and textareas
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Explicitly type 'e' as React.FormEvent for the form
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrors({ name: "", email: "", message: "" });
+    setSuccessMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Assign error messages based on the backend response
+        if (data.error.includes("name")) setErrors((prev) => ({ ...prev, name: data.error }));
+        if (data.error.includes("email")) setErrors((prev) => ({ ...prev, email: data.error }));
+        if (data.error.includes("Message")) setErrors((prev) => ({ ...prev, message: data.error }));
+      } else {
+        setSuccessMessage(data.message || "Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      setErrors({ name: "", email: "", message: "An unexpected error occurred. Please try again." });
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 bg-black-100 flex flex-col items-center gap-8">
-      <h2 className="text-3xl font-bold text-white">Contact Me</h2>
-      
+    <section
+      id="contact"
+      className="relative py-20 bg-black flex flex-col items-center gap-8"
+    >
+      {/* Radial Gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          background: "radial-gradient(circle at center, rgba(55,50,230,0.7) 10%, transparent 60%)",
+        }}
+      ></div>
+
+      <h2 className="relative text-5xl font-bold text-white z-10">Contact Me</h2>
+
+      <form
+        onSubmit={handleSubmit}
+        className="relative w-full max-w-md bg-gray-900 p-6 rounded-lg shadow-lg z-10"
+      >
+        {/* Name Input */}
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-300 mb-2">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            placeholder="Your Name"
+            className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
+          />
+          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+        </div>
+
+        {/* Email Input */}
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-300 mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            placeholder="Your Email"
+            className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
+          />
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+        </div>
+
+        {/* Message Input */}
+        <div className="mb-4">
+          <label htmlFor="message" className="block text-gray-300 mb-2">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            value={formData.message}
+            onChange={handleInputChange}
+            placeholder="Your Message"
+            className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+          {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+        </div>
+
+        {/* Success Message */}
+        {successMessage && <p className="text-green-500 text-sm mb-4">{successMessage}</p>}
+
+        <button
+          type="submit"
+          className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        >
+          Send Message
+        </button>
+      </form>
     </section>
   );
 }
-
 // Footer Component
 function Footer() {
   return (
@@ -574,6 +830,11 @@ function Footer() {
   );
 }
 
+// Fix technology section
+// finish contact section
+// add submission form to contact section
+// figure out backend possibilities
+// possible database
 
 // Main Home Component
 export default function Home() {
@@ -589,9 +850,9 @@ export default function Home() {
         <main className="flex-grow">
           <HeroSection />
           <Technology />
+          <ProjectsSection />
           <AboutMe />
           <EducationSection />
-          <ProjectsSection />
           <ContactSection />
         </main>
         <Footer />
