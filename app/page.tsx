@@ -625,7 +625,7 @@ function ProjectsSection() {
           >
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="block">
               <div className="relative h-48">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
@@ -719,8 +719,10 @@ function ContactSection() {
         setFormData({ name: "", email: "", message: "" });
       }
     } catch (error) {
+      console.error("An error occurred:", error);
       setErrors({ name: "", email: "", message: "An unexpected error occurred. Please try again." });
     }
+    
   };
 
   return (
