@@ -9,24 +9,23 @@ import { FiChevronDown } from "react-icons/fi";
 import { useState } from "react";
 
 import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaGitAlt, FaJava, FaPython } from "react-icons/fa";
-import { SiTailwindcss, SiTensorflow, SiKeras, SiJunit5, SiTypescript } from "react-icons/si";
+import { SiTailwindcss, SiTensorflow, SiKeras, SiJunit5, SiTypescript, SiBuymeacoffee } from "react-icons/si";
 
 function NavigationBar() {
   return (
     <header className="w-full bg-black text-white py-4 px-8">
-      <div className="grid grid-cols-3 items-center">
-        <div className="flex flex-col items-start gap-2">
-          <div className="flex items-center gap-4">
-            <Image src="/favicon.ico" alt="Logo" width={40} height={40} />
-            <h1 className="text-lg font-bold leading-tight sm:text-base md:text-lg">
-              Raegan Van <br />
-              Raamsdonk
-            </h1>
-          </div>
+      <div className="flex items-center justify-between">
+        {/* Left Section: Logo */}
+        <div className="flex items-center gap-4">
+          <Image src="/favicon.ico" alt="Logo" width={40} height={40} />
+          <h1 className="text-lg font-bold leading-tight sm:text-base md:text-lg">
+            Raegan Van <br />
+            Raamsdonk
+          </h1>
         </div>
 
         {/* Center Section: Navigation Links */}
-        <nav className="hidden sm:flex justify-center gap-8">
+        <nav className="hidden sm:flex justify-center gap-8 flex-1">
           {["Technology", "Projects", "Education", "Contact Me"].map((section, index) => (
             <a
               key={index}
@@ -39,17 +38,16 @@ function NavigationBar() {
           ))}
         </nav>
 
-        {/* Right Section */}
-        <div className="flex justify-end">
+        {/* Right Section: Buy Me a Coffee */}
         <a
           href="https://buymeacoffee.com/raeganvr7q"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-sm sm:text-base"
+          className="flex items-center gap-2 bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors ml-auto"
         >
-          Buy Me a Coffee
+          <SiBuymeacoffee size={20} />
+          <span className="hidden md:inline">Buy Me a Coffee</span>
         </a>
-        </div>
       </div>
       <div className="relative h-1 mt-4">
         <div className="absolute inset-0 bg-gradient-to-r from-black via-white to-black h-full"></div>
@@ -57,6 +55,7 @@ function NavigationBar() {
     </header>
   );
 }
+
 
 
 function HeroSection() {
