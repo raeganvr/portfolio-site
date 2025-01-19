@@ -27,52 +27,25 @@ function NavigationBar() {
 
         {/* Center Section: Navigation Links */}
         <nav className="hidden sm:flex justify-center gap-8">
-          <a
-            href="#technology"
-            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
-          >
-            Technology
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
-          </a>
-          <a
-            href="#projects"
-            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
-          >
-            Projects
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
-          </a>
-          <a
-            href="#about"
-            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
-          >
-            About Me
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
-          </a>
-          <a
-            href="#education"
-            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
-          >
-            Education
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
-          </a>
-          <a
-            href="#contact"
-            className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
-          >
-            Contact Me
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
-          </a>
+          {["Technology", "Projects", "About Me", "Education", "Contact Me"].map((section, index) => (
+            <a
+              key={index}
+              href={`#${section.toLowerCase().replace(" ", "-")}`}
+              className="group relative hover:text-gray-400 transition-colors whitespace-nowrap"
+            >
+              {section}
+              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-transparent group-hover:bg-blue-600 group-hover:animate-pulse transition-all"></span>
+            </a>
+          ))}
         </nav>
 
-        {/* Right Section: Button */}
+        {/* Right Section */}
         <div className="flex justify-end">
           <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-sm sm:text-base">
             Hire Me
           </button>
         </div>
       </div>
-
-      {/* Bottom Border Bar */}
       <div className="relative h-1 mt-4">
         <div className="absolute inset-0 bg-gradient-to-r from-black via-white to-black h-full"></div>
       </div>
@@ -452,15 +425,15 @@ function EducationSection() {
       title: "Elementary School",
       time: "2010",
       description:
-        "My passion for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates, and \"The Fastest Path,\" where I studied the brachistochrone curve. These early experiences laid the foundation for my love of problem-solving and technology.",
-      popupDescription: "My passion for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates, and \"The Fastest Path,\" where I studied the brachistochrone curve. These early experiences laid the foundation for my love of problem-solving and technology.",
+        "My love for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates. These early experiences laid the foundation for my love of problem-solving and technology.",
+      popupDescription: "My love for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates. These early experiences laid the foundation for my problem-solving and technology skills.",
       images: ["/images/r-p-boolean.JPG"],
     },
     {
       title: "Middle School",
       time: "2016",
       description:
-        "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.",
+        "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair.the BC Game Developers Innovation Award.",
       popupDescription: "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.",
       images: ["/images/r-middle.jpg"],
     },
@@ -476,8 +449,8 @@ function EducationSection() {
       title: "University",
       time: "Present",
       description:
-        "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. I continue to combine creativity and problem-solving to develop meaningful projects.",
-      popupDescription: "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. I continue to combine creativity and problem-solving to develop meaningful projects.",
+        "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. Here, I strive to do my best in my classes while combining creativity and problem-solving to develop meaningful projects.",
+      popupDescription: "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. Here, I strive to do my best in my classes while combining creativity and problem-solving to develop meaningful projects.",
       images: ["/images/r-skate.jpg"],
     },
   ];
@@ -646,6 +619,8 @@ function ProjectsSection() {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
+                  width={300}
+                  height={400}
                 />
               </div>
             </a>
@@ -693,21 +668,29 @@ function ProjectsSection() {
 import React from "react";
 
 function ContactSection() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState({ name: "", email: "", message: "" });
-  const [successMessage, setSuccessMessage] = useState("");
+  const [formData, setFormData] = useState<{ name: string; email: string; message: string }>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<{ name: string; email: string; message: string }>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [successMessage, setSuccessMessage] = useState<string>("");
 
-  // Explicitly type 'e' as React.ChangeEvent for inputs and textareas
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Explicitly type 'e' as React.FormEvent for the form
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({ name: "", email: "", message: "" });
     setSuccessMessage("");
-
+  
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -718,10 +701,9 @@ function ContactSection() {
       const data = await response.json();
 
       if (!response.ok) {
-        // Assign error messages based on the backend response
         if (data.error.includes("name")) setErrors((prev) => ({ ...prev, name: data.error }));
         if (data.error.includes("email")) setErrors((prev) => ({ ...prev, email: data.error }));
-        if (data.error.includes("Message")) setErrors((prev) => ({ ...prev, message: data.error }));
+        if (data.error.includes("message")) setErrors((prev) => ({ ...prev, message: data.error }));
       } else {
         setSuccessMessage(data.message || "Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
@@ -732,13 +714,10 @@ function ContactSection() {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative py-20 bg-black flex flex-col items-center gap-8"
-    >
+    <section id="contact" className="relative py-20 bg-black flex flex-col items-center gap-8">
       {/* Radial Gradient */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-60"
         style={{
           background: "radial-gradient(circle at center, rgba(55,50,230,0.7) 10%, transparent 60%)",
         }}
@@ -750,7 +729,6 @@ function ContactSection() {
         onSubmit={handleSubmit}
         className="relative w-full max-w-md bg-gray-900 p-6 rounded-lg shadow-lg z-10"
       >
-        {/* Name Input */}
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-300 mb-2">
             Name
@@ -767,7 +745,6 @@ function ContactSection() {
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
 
-        {/* Email Input */}
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-300 mb-2">
             Email
@@ -784,7 +761,6 @@ function ContactSection() {
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
 
-        {/* Message Input */}
         <div className="mb-4">
           <label htmlFor="message" className="block text-gray-300 mb-2">
             Message
@@ -801,7 +777,6 @@ function ContactSection() {
           {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
         </div>
 
-        {/* Success Message */}
         {successMessage && <p className="text-green-500 text-sm mb-4">{successMessage}</p>}
 
         <button
