@@ -568,7 +568,9 @@ function ProjectsSection() {
       description: "Inspired by the classic Flappy Bird game, Floppy...",
       image: "/images/floppyFish.png",
       github: "https://github.com/raeganvr/floppy-fish",
-      techIcons: [<FaJava size={20} className="text-yellow-500" />],
+      techIcons: [
+        { key: "java", icon: <FaJava size={20} className="text-yellow-500" /> },
+      ],
     },
     {
       title: "Ninja Adventure",
@@ -576,7 +578,11 @@ function ProjectsSection() {
       description: "This JavaScript path adventure game challenges...",
       image: "/images/ninja1.png",
       github: "https://github.com/raeganvr/ninja-adventure",
-      techIcons: [<FaHtml5 size={20} className="text-orange-500" />, <FaCss3Alt size={20} className="text-blue-400" />, <FaJsSquare size={20} className="text-yellow-400" />],
+      techIcons: [
+        { key: "html5", icon: <FaHtml5 size={20} className="text-orange-500" /> },
+        { key: "css3", icon: <FaCss3Alt size={20} className="text-blue-400" /> },
+        { key: "javascript", icon: <FaJsSquare size={20} className="text-yellow-400" /> },
+      ],
     },
     {
       title: "Portfolio Website",
@@ -584,7 +590,12 @@ function ProjectsSection() {
       description: "My personal portfolio website made using Next.js...",
       image: "/images/website.png",
       github: "https://github.com/raeganvr/portfolio-website",
-      techIcons: [<FaReact size={20} className="text-blue-500" />, <SiTailwindcss size={20} className="text-teal-500" />, <SiTypescript size={20} className="text-blue-400"/>, <FaGitAlt size={20} className="text-orange-600" />],
+      techIcons: [
+        { key: "react", icon: <FaReact size={20} className="text-blue-500" /> },
+        { key: "tailwind", icon: <SiTailwindcss size={20} className="text-teal-500" /> },
+        { key: "typescript", icon: <SiTypescript size={20} className="text-blue-400" /> },
+        { key: "git", icon: <FaGitAlt size={20} className="text-orange-600" /> },
+      ],
     },
   ];
 
@@ -609,13 +620,12 @@ function ProjectsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl px-4">
         {projects.map((project, index) => (
           <div
-            key={index} // Add the `key` prop
+            key={index}
             className="border border-gray-700 bg-gray-900 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105"
           >
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="block">
-              {/* Image Section */}
               <div className="relative h-48">
-                <Image
+                <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
@@ -624,7 +634,6 @@ function ProjectsSection() {
                 />
               </div>
             </a>
-            {/* Content Section */}
             <div className="p-4 flex flex-col gap-4">
               <div>
                 <p className="text-sm text-gray-400">{project.date}</p>
@@ -633,8 +642,8 @@ function ProjectsSection() {
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex gap-2">
-                  {project.techIcons.map((icon, idx) => (
-                    <span key={idx}>{icon}</span> 
+                  {project.techIcons.map((techIcon) => (
+                    <span key={techIcon.key}>{techIcon.icon}</span>
                   ))}
                 </div>
                 <a
@@ -663,6 +672,7 @@ function ProjectsSection() {
     </section>
   );
 }
+
 
 
 import React from "react";
