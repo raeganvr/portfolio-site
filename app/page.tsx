@@ -388,7 +388,7 @@ function Technology() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {techItems.map((item, index) => (
               <div
-                key={index}
+                key={index} // Add the `key` prop
                 className="flex items-center gap-4 bg-slate-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-transform transform group"
               >
                 <div className="p-2 bg-slate-950 rounded-lg relative group-hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)] transition-shadow">
@@ -468,7 +468,7 @@ function EducationSection() {
         </div>
         {timelineItems.map((item, index) => (
           <div
-            key={index}
+            key={index} // Add the `key` prop
             className={`relative flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto`}
           >
             {/* Horizontal Line */}
@@ -500,7 +500,7 @@ function EducationSection() {
                 <div className="flex flex-wrap gap-4 justify-end mt-4">
                   {item.images.map((image, imgIndex) => (
                     <button
-                      key={imgIndex}
+                      key={imgIndex} // Add the `key` prop for images
                       onClick={() => {
                         setPopupImage(image);
                         setPopupDescription(item.popupDescription);
@@ -609,13 +609,13 @@ function ProjectsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl px-4">
         {projects.map((project, index) => (
           <div
-            key={index}
+            key={index} // Add the `key` prop
             className="border border-gray-700 bg-gray-900 rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105"
           >
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="block">
               {/* Image Section */}
               <div className="relative h-48">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
@@ -634,7 +634,7 @@ function ProjectsSection() {
               <div className="flex items-center justify-between">
                 <div className="flex gap-2">
                   {project.techIcons.map((icon, idx) => (
-                    <span key={idx}>{icon}</span>
+                    <span key={idx}>{icon}</span> 
                   ))}
                 </div>
                 <a
@@ -673,7 +673,7 @@ function ContactSection() {
     email: "",
     message: "",
   });
-  const [errors, setErrors] = useState<{ name: string; email: string; message: string }>({
+  const [error, setErrors] = useState<{ name: string; email: string; message: string }>({
     name: "",
     email: "",
     message: "",
@@ -742,7 +742,7 @@ function ContactSection() {
             placeholder="Your Name"
             className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
           />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+          {error.name && <p className="text-red-500 text-sm mt-1">{error.name}</p>}
         </div>
 
         <div className="mb-4">
@@ -758,7 +758,7 @@ function ContactSection() {
             placeholder="Your Email"
             className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          {error.email && <p className="text-red-500 text-sm mt-1">{error.email}</p>}
         </div>
 
         <div className="mb-4">
@@ -774,7 +774,7 @@ function ContactSection() {
             placeholder="Your Message"
             className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:ring-2 focus:ring-blue-500"
           ></textarea>
-          {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+          {error.message && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
         </div>
 
         {successMessage && <p className="text-green-500 text-sm mb-4">{successMessage}</p>}
