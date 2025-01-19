@@ -41,9 +41,14 @@ function NavigationBar() {
 
         {/* Right Section */}
         <div className="flex justify-end">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-sm sm:text-base">
-            Hire Me
-          </button>
+        <a
+          href="https://buymeacoffee.com/raeganvr7q"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-sm sm:text-base"
+        >
+          Buy Me a Coffee
+        </a>
         </div>
       </div>
       <div className="relative h-1 mt-4">
@@ -56,63 +61,66 @@ function NavigationBar() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="py-20 px-16 bg-black-100 h-[70vh]">
-    <div className="border border-white/70 p-8 rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-2 items-center gap-16 transition-transform duration-300 hover:shadow-lg hover:scale-105 mx-auto max-w-[800px] animate-glow">
-      {/* Left Content: Name and Description */}
-      <div className="flex flex-col">
-        <h2 className="text-2xl font-bold text-white text-left">Raegan Van Raamsdonk</h2>
+    <section id="hero" className="py-20 px-16 bg-black-100 h-screen">
+      <div className="border border-white/70 p-8 rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-2 items-center gap-16 transition-transform duration-300 hover:shadow-lg hover:scale-105 mx-auto max-w-[800px] animate-glow">
+        {/* Left Content: Name and Description */}
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-bold text-white text-left">Raegan Van Raamsdonk</h2>
 
-        <p className="text-md font-bold text-gray-400 text-left">Computer Science Student</p>
-        <p className="text-sm text-gray-400 text-left flex items-center">
-          <IoPin /> British Columbia, Canada
-        </p>
-        <p className="text-sm text-gray-300 text-left py-4">
-          I am a computer science student who enjoys creating games,
-          full-stack web applications, and solving data structure and algorithms problems.
-        </p>
+          <p className="text-md font-bold text-gray-400 text-left">Computer Science Student</p>
+          <p className="text-sm text-gray-400 text-left flex items-center">
+            <IoPin /> British Columbia, Canada
+          </p>
+          <p className="text-sm text-gray-300 text-left py-4">
+            I am a computer science student who enjoys creating games,
+            full-stack web applications, and solving data structure and algorithms problems.
+          </p>
 
-        {/* Social Buttons */}
-        <div className="flex gap-4">
-          <a
-            href="https://github.com/raeganvr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
-          >
-            <FaGithub size={20} /> GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/raeganvr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
-          >
-            <FaLinkedin size={20} /> LinkedIn
-          </a>
-          <a
-            href="mailto:raeganvr7@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
-          >
-            <MdEmail size={20} /> Email
-          </a>
+          {/* Social Buttons */}
+          <div className="flex gap-4">
+            <a
+              href="https://github.com/raeganvr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              <FaGithub size={20} />
+              <span className="hidden sm:inline">GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/raeganvr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              <FaLinkedin size={20} />
+              <span className="hidden sm:inline">LinkedIn</span>
+            </a>
+            <a
+              href="mailto:raeganvr7@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              <MdEmail size={20} />
+              <span className="hidden sm:inline">Email</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Right Content: Portrait */}
+        <div className="flex justify-center">
+          <Image
+            src="/images/portrait.jpg"
+            alt="Portrait of Raegan Van Raamsdonk"
+            width={324}
+            height={246}
+            className="rounded-full object-cover"
+            priority
+          />
         </div>
       </div>
-
-      {/* Right Content: Portrait */}
-      <div className="flex justify-center">
-        <Image
-          src="/images/portrait.jpg"
-          alt="Portrait of Raegan Van Raamsdonk"
-          width={324}
-          height={246}
-          className="rounded-full object-cover"
-          priority
-        />
-      </div>
-    </div>
-  </section>
+    </section>
   );
 }
 function AboutMe() {
@@ -369,7 +377,7 @@ function Technology() {
 
   return (
     <section id="technology" className="py-20 flex flex-col items-center gap-12 relative">
-      <div className="bg-black bg-opacity-90 relative p-8 shadow-md mx-auto w-screen h-[80vh] rounded-lg overflow-hidden">
+      <div className="bg-black bg-opacity-90 relative p-8 shadow-md mx-auto w-screen min-h-screen rounded-lg overflow-y-auto">
         {/* Radial Gradient */}
         <div
           className="absolute inset-0 opacity-30 z-0"
@@ -377,18 +385,18 @@ function Technology() {
             background: "radial-gradient(circle at top, rgba(55,50,230,0.7) 10%, transparent 70%)",
           }}
         ></div>
-  
+
         {/* Section Title */}
         <div className="max-w-6xl mx-auto">
           <h2 className="text-6xl font-bold text-white tracking-wide text-left z-10 relative mb-8 py-8">
             Technology
           </h2>
-  
+
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
             {techItems.map((item, index) => (
               <div
-                key={index} // Add the `key` prop
+                key={index}
                 className="flex items-center gap-4 bg-slate-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-transform transform group"
               >
                 <div className="p-2 bg-slate-950 rounded-lg relative group-hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)] transition-shadow">
@@ -405,14 +413,12 @@ function Technology() {
       </div>
     </section>
   );
-  
-  
-  
 }
 
 
+
 function EducationSection() {
-  const [popupImage, setPopupImage] = useState<string | null>(null); 
+  const [popupImage, setPopupImage] = useState<string | null>(null);
   const [popupDescription, setPopupDescription] = useState<string>("");
 
   const closePopup = () => {
@@ -426,15 +432,17 @@ function EducationSection() {
       time: "2010",
       description:
         "My love for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates. These early experiences laid the foundation for my love of problem-solving and technology.",
-      popupDescription: "My love for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates. These early experiences laid the foundation for my problem-solving and technology skills.",
+      popupDescription:
+        "My love for computers and mathematics was sparked through projects like \"Binary,\" where I explored Boolean algebra and logic gates. These early experiences laid the foundation for my problem-solving and technology skills.",
       images: ["/images/r-p-boolean.JPG"],
     },
     {
       title: "Middle School",
       time: "2016",
       description:
-        "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair.the BC Game Developers Innovation Award.",
-      popupDescription: "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.",
+        "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award.",
+      popupDescription:
+        "I combined my love for math and computers to create \"Neural Networks for Cancer Diagnosis,\" a project that won first place at the Vancouver Island Regional Science Fair and the BC Game Developers Innovation Award. Using Python with TensorFlow and Keras, I showcased the potential of AI in healthcare.",
       images: ["/images/r-middle.jpg"],
     },
     {
@@ -442,7 +450,8 @@ function EducationSection() {
       time: "2019",
       description:
         "I developed projects like \"Floppy Fish,\" an underwater-themed game, and \"Ninja Adventures,\" a multi-level adventure game. These experiences allowed me to explore creativity while deepening my interest in programming.",
-      popupDescription: "I developed projects like \"Floppy Fish,\" an underwater-themed game, and \"Ninja Adventures,\" a multi-level adventure game. These experiences allowed me to explore creativity while deepening my interest in programming.",
+      popupDescription:
+        "I developed projects like \"Floppy Fish,\" an underwater-themed game, and \"Ninja Adventures,\" a multi-level adventure game. These experiences allowed me to explore creativity while deepening my interest in programming.",
       images: ["/images/floppyFish.png", "/images/ninja2.png"],
     },
     {
@@ -450,7 +459,8 @@ function EducationSection() {
       time: "Present",
       description:
         "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. Here, I strive to do my best in my classes while combining creativity and problem-solving to develop meaningful projects.",
-      popupDescription: "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. Here, I strive to do my best in my classes while combining creativity and problem-solving to develop meaningful projects.",
+      popupDescription:
+        "I am expanding my skills by studying computer science and mathematics, building web applications, and solving complex algorithm challenges. Here, I strive to do my best in my classes while combining creativity and problem-solving to develop meaningful projects.",
       images: ["/images/r-skate.jpg"],
     },
   ];
@@ -460,21 +470,20 @@ function EducationSection() {
       <div className="w-full max-w-6xl px-4">
         <h2 className="text-6xl font-bold text-white tracking-wide ml-2">Education</h2>
       </div>
-      
-      
+
       <div className="relative space-y-12 before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:h-full before:w-1 before:bg-gray-600">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-700 text-gray-300 shadow">
           <FiChevronDown size={16} />
         </div>
         {timelineItems.map((item, index) => (
           <div
-            key={index} // Add the `key` prop
-            className={`relative flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto`}
+            key={index}
+            className="relative flex flex-col sm:flex-row items-center gap-8 max-w-5xl mx-auto"
           >
             {/* Horizontal Line */}
             <div
               className={`absolute top-1/2 w-1/2 h-1 bg-gray-600 ${
-                index % 2 === 0 ? "left-1/2 -translate-x-0" : "right-1/2 translate-x-0"
+                index % 2 === 0 ? "sm:left-1/2 sm:-translate-x-0" : "sm:right-1/2 sm:translate-x-0"
               }`}
             ></div>
 
@@ -486,43 +495,39 @@ function EducationSection() {
             {/* Content Box */}
             <div
               className={`relative bg-gray-800 text-white p-6 rounded border border-gray-600 shadow-lg ${
-                index % 2 === 0 ? "ml-auto" : "mr-auto"
-              }`}
-              style={{ width: "45%" }}
+                index % 2 === 0 ? "sm:ml-auto" : "sm:mr-auto"
+              } w-full sm:w-[45%]`}
             >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="font-bold text-xl">{item.title}</h3>
                 <time className="font-bold text-lg tracking-wider text-indigo-300">{item.time}</time>
               </div>
-              <div className="grid grid-cols-2 gap-2">
-                <p className="text-gray-300">{item.description}</p>
-              
-                <div className="flex flex-wrap gap-4 justify-end mt-4">
-                  {item.images.map((image, imgIndex) => (
-                    <button
-                      key={imgIndex} // Add the `key` prop for images
-                      onClick={() => {
-                        setPopupImage(image);
-                        setPopupDescription(item.popupDescription);
-                      }}
-                    >
-                      <Image
-                        className="rounded-lg object-cover cursor-pointer hover:opacity-80"
-                        src={image}
-                        alt={`${item.title} Image ${imgIndex + 1}`}
-                        width={300}
-                        height={200}
-                      />
-                    </button>
-                  ))}
-                </div>
+              <p className="text-gray-300">{item.description}</p>
+              <div className="flex justify-center mt-4">
+                {item.images.map((image, imgIndex) => (
+                  <button
+                    key={imgIndex}
+                    onClick={() => {
+                      setPopupImage(image);
+                      setPopupDescription(item.popupDescription);
+                    }}
+                    className="flex justify-center"
+                  >
+                    <Image
+                      className="rounded-lg object-cover cursor-pointer hover:opacity-80"
+                      src={image}
+                      alt={`${item.title} Image ${imgIndex + 1}`}
+                      width={300}
+                      height={200}
+                    />
+                  </button>
+                ))}
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Pop-Up for Expanded Image */}
       {popupImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -549,11 +554,9 @@ function EducationSection() {
           </div>
         </div>
       )}
-
     </section>
   );
 }
-
 
 
 
@@ -600,19 +603,15 @@ function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="relative py-20 bg-black flex flex-col items-center gap-12 -z-10">
+    <section id="projects" className="relative py-20 bg-black flex flex-col items-center gap-12">
+      {/* Radial Gradient */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-30 -z-10"
         style={{
           background: "radial-gradient(circle at bottom, rgba(55,50,230,0.7) 10%, transparent 70%)",
-          top: "0", 
-          bottom: "0", 
-          left: "0", 
-          right: "0", 
-          zIndex: "-1", 
         }}
       ></div>
-  
+
       {/* Projects Section */}
       <div className="w-full max-w-6xl px-4">
         <h2 className="text-6xl font-bold text-white tracking-wide ml-2">Projects</h2>
@@ -672,6 +671,7 @@ function ProjectsSection() {
     </section>
   );
 }
+
 
 
 
