@@ -27,7 +27,7 @@ function NavigationBar() {
 
         {/* Center Section: Navigation Links */}
         <nav className="hidden sm:flex justify-center gap-8">
-          {["Technology", "Projects", "About Me", "Education", "Contact Me"].map((section, index) => (
+          {["Technology", "Projects", "Education", "Contact Me"].map((section, index) => (
             <a
               key={index}
               href={`#${section.toLowerCase().replace(" ", "-")}`}
@@ -707,26 +707,41 @@ function ContactSection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
-      const data = await response.json();
-
+  
+      // Check if the response status indicates success
       if (!response.ok) {
-        if (data.error.includes("name")) setErrors((prev) => ({ ...prev, name: data.error }));
-        if (data.error.includes("email")) setErrors((prev) => ({ ...prev, email: data.error }));
-        if (data.error.includes("message")) setErrors((prev) => ({ ...prev, message: data.error }));
-      } else {
-        setSuccessMessage(data.message || "Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
+        // Parse the error response if it's JSON
+        const data = await response.json().catch(() => ({})); // Fallback to an empty object for invalid JSON
+        console.error("Error response:", data);
+  
+        // Check specific fields in the error response
+        if (data.error?.includes("name")) setErrors((prev) => ({ ...prev, name: data.error }));
+        if (data.error?.includes("email")) setErrors((prev) => ({ ...prev, email: data.error }));
+        if (data.error?.includes("message")) setErrors((prev) => ({ ...prev, message: data.error }));
+        return;
       }
+  
+      // Parse the success response
+      const data = await response.json();
+      console.log("Success response:", data);
+  
+      // Set success message
+      setSuccessMessage(data.message || "Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("An error occurred:", error);
-      setErrors({ name: "", email: "", message: "An unexpected error occurred. Please try again." });
+      console.error("An unexpected error occurred:", error);
+  
+      // Handle unexpected errors
+      setErrors({
+        name: "",
+        email: "",
+        message: "An unexpected error occurred. Please try again.",
+      });
     }
-    
   };
 
   return (
-    <section id="contact" className="relative py-20 bg-black flex flex-col items-center gap-8">
+    <section id="contact-me" className="relative py-20 bg-black flex flex-col items-center gap-8">
       {/* Radial Gradient */}
       <div
         className="absolute inset-0 pointer-events-none opacity-60"
